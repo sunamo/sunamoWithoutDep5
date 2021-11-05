@@ -12,5 +12,6 @@ namespace SunamoExceptions
         public const string isNotInWindowsPathFormat = "isNotInWindowsPathFormat";
         public const string NotImplementedCasePublicProgramErrorPleaseContactDeveloper = "NotImplementedCasePublicProgramErrorPleaseContactDeveloper";
         public const string DifferentCountElementsInCollection = "DifferentCountElementsInCollection";
+        public const string UnableToLoadElementAddSomeAndTryAgain = "UnableToLoadElementAddSomeAndTryAgain";
     }
 }

@@ -7,7 +7,7 @@ using System.Text;
 /// </summary>
 public class PD
 {
-     static bool showMbDebug = true;
+    static bool showMbDebug = true;
     public static Action<string> delShowMb = null;
 
     public static void ShowMb(string v)

@@ -13,5 +13,6 @@ namespace SunamoExceptions
         public const char qm = '"';
         public const char emDash = '—';
         public const char bs = '\\';
+        public static char space160 = (char)160;
     }
 }

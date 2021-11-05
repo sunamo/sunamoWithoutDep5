@@ -217,7 +217,17 @@ namespace SunamoExceptions
         private static bool ExistsDirectory(string nad)
         {
             return Directory.Exists(nad);
-        } 
+        }
+        #endregion
+
+        #region Just in SunamoExceptions
+        public static void CreateFileIfDoesntExists(string path)
+        {
+            if (!File.Exists(path))
+            {
+                File.WriteAllText(path, string.Empty);
+            }
+        }
         #endregion
     }
 }

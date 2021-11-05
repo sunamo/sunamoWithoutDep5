@@ -6,9 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace SunamoExceptions
-{ 
-public class SH
 {
+    public partial class SH
+    {
         public static string WrapWithQm(string commitMessage)
         {
             return SH.WrapWith(commitMessage, AllChars.qm);
@@ -31,7 +31,7 @@ public class SH
         {
             while (v.StartsWith(s))
             {
-                v = v.Substring(s.Length);
+                v =  v.Substring(s.Length);
             }
             return v;
         }
@@ -168,6 +168,7 @@ public class SH
                 }
                 catch (Exception ex)
                 {
+                    ThrowExceptions.ExcAsArg(ex);
                     return status;
                 }
             }
