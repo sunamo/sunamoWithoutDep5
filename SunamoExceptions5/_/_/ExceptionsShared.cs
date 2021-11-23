@@ -49,6 +49,11 @@ namespace SunamoExceptions
             return CheckBefore(before) + originalText + " " + "dont contains" + ": " + SH.Join(notContained, ",");
         }
 
+        internal static string NotValidXml(string v, string path, Exception ex)
+        {
+            return v + path + " has not valid XML. " + Exceptions.TextOfExceptions(ex);
+        }
+
         public static string FolderCannotBeDeleted(string v, string repairedBlogPostsFolder, Exception ex)
         {
             return v + repairedBlogPostsFolder + TextOfExceptions(ex);
