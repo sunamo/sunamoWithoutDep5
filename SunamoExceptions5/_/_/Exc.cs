@@ -23,7 +23,7 @@ namespace SunamoExceptions
         /// Remove GetStackTrace (first line
         /// </summary>
         /// <returns></returns>
-        public static string GetStackTrace()
+        public static string GetStackTrace(bool removeOneRowMore = false)
         {
             StackTrace st = new StackTrace();
 
@@ -31,6 +31,10 @@ namespace SunamoExceptions
             var l = GetLines(v);
             Trim(l);
             l.RemoveAt(0);
+            if (removeOneRowMore)
+            {
+                l.RemoveAt(0);
+            }
 
             return JoinNL(l);
         }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -9,6 +10,21 @@ namespace SunamoExceptions
 {
     public partial class SH
     {
+        /// <summary>
+        /// Not auto remove empty
+        /// </summary>
+        /// <param name="p"></param>
+        public static List<string> GetLines(string p)
+        {
+            List<string> vr = new List<string>();
+            StringReader sr = new StringReader(p);
+            string f = null;
+            while ((f = sr.ReadLine()) != null)
+            {
+                vr.Add(f);
+            }
+            return vr;
+        }
         public static string WrapWithQm(string commitMessage)
         {
             return SH.WrapWith(commitMessage, AllChars.qm);
