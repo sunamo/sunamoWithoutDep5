@@ -49,7 +49,7 @@ namespace SunamoExceptions
             return CheckBefore(before) + originalText + " " + "dont contains" + ": " + SH.Join(notContained, ",");
         }
 
-        internal static string NotValidXml(string v, string path, Exception ex)
+        public static string NotValidXml(string v, string path, Exception ex)
         {
             return v + path + " has not valid XML. " + Exceptions.TextOfExceptions(ex);
         }
