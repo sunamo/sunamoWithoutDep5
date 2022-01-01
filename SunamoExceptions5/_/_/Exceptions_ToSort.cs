@@ -13,7 +13,7 @@ namespace SunamoExceptions
 
         
 
-        public static object NotImplementedMethod(string before)
+        public static string NotImplementedMethod(string before)
         {
             return CheckBefore(before) + SunamoExceptionsNotTranslateAble.NotImplementedCasePublicProgramErrorPleaseContactDeveloper + ".";
         }

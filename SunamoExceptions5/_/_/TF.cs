@@ -1,21 +1,20 @@
-﻿using System;
+﻿using AsyncIO.FileSystem;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace SunamoExceptions
 {
-    public class TF
+    public partial class TF
     {
-        public static string ReadAllText(string filename)
-        {
-            return File.ReadAllText(filename);
-        }
+        public static Type type = typeof(TF);
 
-        public static List<byte> ReadAllBytes(string v)
+        public static async Task<string> ReadAllTextAsync(string s)
         {
-            return File.ReadAllBytes(v).ToList();
+            return await AsyncFile.ReadAllTextAsync(s);
         }
     }
 }

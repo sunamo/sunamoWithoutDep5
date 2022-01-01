@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,9 +9,12 @@ namespace SunamoExceptions
 {
     public partial class ThrowExceptions
     {
-        #region For easy copy from ThrowExceptionsShared.cs - all ok 17-10-21
 
         
+
+        #region For easy copy from ThrowExceptionsShared.cs - all ok 17-10-21
+
+
         public static void DummyNotThrow(Exception ex)
         {
 

@@ -225,7 +225,7 @@ namespace SunamoExceptions
         {
             if (!File.Exists(path))
             {
-                File.WriteAllText(path, string.Empty);
+                TF.WriteAllText(path, string.Empty);
             }
         }
         #endregion

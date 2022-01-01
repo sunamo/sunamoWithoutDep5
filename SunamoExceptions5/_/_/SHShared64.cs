@@ -10,5 +10,6 @@ namespace SunamoExceptions
 {
     public partial class SH
     {
+
     }
 }

@@ -73,7 +73,7 @@ namespace SunamoExceptions
             return CheckBefore(before) + "Not implemented case" + fr + " . public program error. Please contact developer" + ".";
         }
 
-        public static object Custom(string before, string message)
+        public static string Custom(string before, string message)
         {
             return CheckBefore(before) + message;
         }
