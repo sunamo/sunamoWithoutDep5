@@ -9,21 +9,7 @@ namespace SunamoExceptions
 {
     public partial class Exceptions
     {
-        #region For easy copy in SunamoException project from ExceptionsShared.cs
-        public static string ExcAsArg(string before, Exception ex, string message)
-        {
-            return before + message + AllStrings.space + Exceptions.TextOfExceptions(ex);
-        }
-
-        public static object KeyNotFound<T, U>(string v, IDictionary<T, U> en, string dictName, T key)
-        {
-            if (!en.ContainsKey(key))
-            {
-                return key + " is now exists in Dictionary " + dictName;
-            }
-            return null;
-        }
-
+        #region For easy copy from ExceptionsShared.cs
 
         /// <summary>
         /// Verify whether A2 contains A3
@@ -46,12 +32,7 @@ namespace SunamoExceptions
             {
                 return null;
             }
-            return CheckBefore(before) + originalText + " " + "dont contains" + ": " + SH.Join(notContained, ",");
-        }
-
-        public static string NotValidXml(string v, string path, Exception ex)
-        {
-            return v + path + " has not valid XML. " + Exceptions.TextOfExceptions(ex);
+            return CheckBefore(before) + originalText + " dont contains: " + SH.Join(notContained, AllStrings.comma);
         }
 
         public static string FolderCannotBeDeleted(string v, string repairedBlogPostsFolder, Exception ex)
@@ -74,6 +55,7 @@ namespace SunamoExceptions
         }
 
 
+
         public static string IsEmpty(string before, IEnumerable folders, string colName, string additionalMessage)
         {
             if (folders.Count() == 0)
@@ -85,13 +67,15 @@ namespace SunamoExceptions
 
 
 
+        public const string sp = AllStrings.space;
 
-        public static string CannotMoveFolder(string before, string item, string nova)
+
+        public static string CannotMoveFolder(string before, string item, string nova, Exception ex)
         {
-            return $"Cannot move folder from {item} to {nova}";
+            return before + $"Cannot move folder from {item} to {nova}" + sp + TextOfExceptions(ex);
         }
 
-        public static string ExcAsArg(string before, string message, Exception ex)
+        public static string ExcAsArg(string before, Exception ex, string message)
         {
             return before + message + AllStrings.space + Exceptions.TextOfExceptions(ex);
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -10,10 +11,70 @@ namespace SunamoExceptions
     public partial class ThrowExceptions
     {
         #region For easy copy from ThrowExceptionsShared64.cs - all ok 17-10-21
-        public static void Custom(string stacktrace, object type, string methodName, string message)
+
+
+        public static void DifferentCountInLists(string stacktrace, object type, string methodName, string namefc, int countfc, string namesc, int countsc)
         {
-            ThrowIsNotNull(stacktrace, Exceptions.Custom(FullNameOfExecutedCode(type, methodName, true), message));
+            ThrowIsNotNull(stacktrace, Exceptions.DifferentCountInLists(FullNameOfExecutedCode(type, methodName, true), namefc, countfc, namesc, countsc));
         }
+
+        public static void DifferentCountInLists(string stacktrace, object type, string methodName, string namefc, IEnumerable replaceFrom, string namesc, IEnumerable replaceTo)
+        {
+            DifferentCountInLists(stacktrace, type, methodName, namefc, replaceFrom.Count(), namesc, replaceTo.Count());
+        }
+
+        public static void Custom(string stacktrace, object type, string methodName, string message, bool reallyThrow = true)
+        {
+            ThrowIsNotNull(stacktrace, Exceptions.Custom(FullNameOfExecutedCode(type, methodName, true), message), reallyThrow);
+        }
+
+        public static bool reallyThrow2 = true;
+
+#if MB
+    static void ShowMb(string s)
+    {
+        
+        TranslateDictionary.ShowMb(s);
+    }
+#endif
+
+        public static Tuple<string, string, string> t
+        {
+            get
+            {
+                return ThrowEx.t;
+            }
+            set
+            {
+                ThrowEx.t = value;
+            }
+        }
+
+        public static void ThrowIsNotNullEx(Func<string, object, string> f, object o)
+        {
+            t = Exc.GetStackTrace2(true);
+
+            var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), o);
+            ThrowIsNotNull(t.Item3, exc);
+        }
+
+        public static void ThrowIsNotNullEx(Func<string, string> f)
+        {
+            t = Exc.GetStackTrace2(true);
+
+            var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2));
+            ThrowIsNotNull(t.Item3, exc);
+        }
+
+        public static void ThrowIsNotNullEx(Func<string, string, string> f, string a1)
+        {
+            t = Exc.GetStackTrace2(true);
+
+            var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), a1);
+            ThrowIsNotNull(t.Item3, exc);
+        }
+
+        static string lastMethod = null;
 
         /// <summary>
         /// true if everything is OK
@@ -21,28 +82,74 @@ namespace SunamoExceptions
         /// In console app is needed put in into try-catch error due to there is no globally handler of errors
         /// </summary>
         /// <param name="exception"></param>
-        public static bool ThrowIsNotNull(string stacktrace, string exception)
+        public static bool ThrowIsNotNull(string stacktrace, string exception, bool reallyThrow = true)
         {
+            // Výjimky se tak často nevyhazují. Tohle je daň za to že jsem tu měl arch
+            // jež nebyla dobře navržená. V ThrowEx se to již podruhé volat nebude.
+            t = Exc.GetStackTrace2(true);
+            var cm = t.Item2;
+
             if (exception != null)
             {
-                if (Exc.aspnet)
+                if (lastMethod == cm)
                 {
-                    //if (HttpRuntime.AppDomainAppId != null)
-                    //{
-                    //Debugger.Break();
-                    // Will be written in globalasax error
-                    writeServerError(stacktrace, exception);
-                    throw new Exception(exception);
-                    //}
+#if MB
+                ShowMb("lastMethod == cm");
+#endif
+                    return false;
                 }
                 else
                 {
-                    throw new Exception(exception);
+#if MB
+                if (lastMethod == null)
+                {
+                    ShowMb("lastMethod = " + Consts.nulled);
+                }
+                else
+                {
+                    ShowMb("lastMethod = " + lastMethod.ToString());
+                }
+#endif
+                    lastMethod = cm;
+                }
+
+                if (Exc.aspnet)
+                {
+                    //exception = exception.Replace("Violation of PRIMARY KEY constraint", ShortenedExceptions.ViolationOfPK);
+
+                    // Will be written in globalasax error
+                    writeServerError(stacktrace, exception);
+                    if (reallyThrow && reallyThrow2)
+                    {
+                        throw new Exception(exception);
+                    }
+                }
+                else
+                {
+#if MB
+                //ShowMb($"reallyThrow = {reallyThrow} && reallyThrow2 = {reallyThrow2}");
+#endif
+
+                    if (reallyThrow && reallyThrow2)
+                    {
+#if MB
+                    ShowMb("Throw exc");
+#endif
+                        throw new Exception(exception);
+                    }
                 }
             }
             return true;
         }
 
+        /// <summary>
+        /// !FS.IsWindowsPathFormat
+        /// </summary>
+        /// <param name="stacktrace"></param>
+        /// <param name="type"></param>
+        /// <param name="methodName"></param>
+        /// <param name="argName"></param>
+        /// <param name="argValue"></param>
         public static void IsNotWindowsPathFormat(string stacktrace, object type, string methodName, string argName, string argValue)
         {
             ThrowIsNotNull(stacktrace, Exceptions.IsNotWindowsPathFormat(FullNameOfExecutedCode(type, methodName, true), argName, argValue));
@@ -63,15 +170,20 @@ namespace SunamoExceptions
             ThrowIsNotNull(stacktrace, Exceptions.IsNull(FullNameOfExecutedCode(type, methodName, true), variableName, variable));
         }
 
+#pragma warning disable
+        /// <summary>
+        /// CA2211	Non-constant fields should not be visible
+        /// IDE0044	Make field readonly
+        /// 
+        /// Must be public due to GlobalAsaxHelper
+        /// </summary>
         public static Action<string, string> writeServerError;
+#pragma warning enable
 
         public static void NotImplementedCase(string stacktrace, object type, string methodName, object niCase)
         {
             ThrowIsNotNull(stacktrace, Exceptions.NotImplementedCase(FullNameOfExecutedCode(type, methodName, true), niCase));
         }
-
-
-
 
         /// <summary>
         /// First can be Method base, then A2 can be anything

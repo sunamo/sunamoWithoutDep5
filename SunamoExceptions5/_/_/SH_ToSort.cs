@@ -139,11 +139,11 @@ namespace SunamoExceptions
                 return string.Empty;
             }
 
-        var d = delimiter.ToString();
+            var d = delimiter.ToString();
 
-        StringBuilder sb = new StringBuilder();
-        foreach (var item in parts)
-        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in parts)
+            {
             sb.Append(item.ToString() + d);
         }
 

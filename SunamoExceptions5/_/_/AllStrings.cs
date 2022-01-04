@@ -19,5 +19,7 @@ namespace SunamoExceptions
         public const string bs = "\\";
         public static string comma = ",";
         public static string sc = ";";
+        public const string lt = "<";
+        public const string dot = ".";
     }
 }

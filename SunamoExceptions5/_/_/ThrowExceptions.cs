@@ -13,15 +13,6 @@ namespace SunamoExceptions
     {
         #region For easy copy from ThrowExceptions.cs
         #region DifferentCountInLists
-        public static void DifferentCountInLists(string stacktrace, object type, string methodName, string namefc, int countfc, string namesc, int countsc)
-        {
-            ThrowIsNotNull(stacktrace, Exceptions.DifferentCountInLists(FullNameOfExecutedCode(type, methodName, true), namefc, countfc, namesc, countsc));
-        }
-
-        public static void DifferentCountInLists(string stacktrace, object type, string methodName, string namefc, IEnumerable replaceFrom, string namesc, IEnumerable replaceTo)
-        {
-            DifferentCountInLists(stacktrace, type, methodName, namefc, replaceFrom.Count(), namesc, replaceTo.Count());
-        }
 
         public static void ExcAsArg(Exception ex, string p = Consts.se)
         {

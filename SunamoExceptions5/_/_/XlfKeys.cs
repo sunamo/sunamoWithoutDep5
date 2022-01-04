@@ -9,6 +9,7 @@ namespace SunamoExceptions
     /// </summary>
     public class XlfKeys
     {
+        public const string Test = "Test";
         public const string isNotInWindowsPathFormat = "isNotInWindowsPathFormat";
         public const string NotImplementedCasePublicProgramErrorPleaseContactDeveloper = "NotImplementedCasePublicProgramErrorPleaseContactDeveloper";
         public const string DifferentCountElementsInCollection = "DifferentCountElementsInCollection";
