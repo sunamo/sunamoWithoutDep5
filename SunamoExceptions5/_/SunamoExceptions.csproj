@@ -8,7 +8,7 @@
     <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AsyncIO.DotNet" Version="1.3.0" />
+    <ProjectReference Include="..\..\sunamo.notmine\firenero.AsyncIO\firenero.AsyncIO.csproj" />
   </ItemGroup>
   <!--<SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
