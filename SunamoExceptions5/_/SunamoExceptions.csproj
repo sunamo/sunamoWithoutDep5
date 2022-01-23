@@ -8,6 +8,9 @@
     <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\sunamo.notmine\firenero.AsyncIO\firenero.AsyncIO.csproj" />
     <ProjectReference Include="..\..\sunamo\duo\duo.csproj" />
   </ItemGroup>

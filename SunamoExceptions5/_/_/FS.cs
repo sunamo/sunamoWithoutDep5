@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SunamoExceptions
 {
-    public class FS
+    public partial class FS
     {
         private static Type type = typeof(FS);
 
@@ -69,41 +69,7 @@ namespace SunamoExceptions
 
             return value + " TB";
         }
-        public static bool IsWindowsPathFormat(string argValue)
-        {
-            if (string.IsNullOrWhiteSpace(argValue))
-            {
-                return false;
-            }
 
-            bool badFormat = false;
-
-            if (argValue.Length < 3)
-            {
-                return badFormat;
-            }
-            if (!char.IsLetter(argValue[0]))
-            {
-                badFormat = true;
-            }
-
-
-
-            if (char.IsLetter(argValue[1]))
-            {
-                badFormat = true;
-            }
-
-            if (argValue.Length > 2)
-            {
-                if (argValue[1] != '\\' && argValue[2] != '\\')
-                {
-                    badFormat = true;
-                }
-            }
-
-            return !badFormat;
-        }
 
         public static List<string> GetFiles(string path, string v, SearchOption topDirectoryOnly)
         {
@@ -199,10 +165,7 @@ namespace SunamoExceptions
         }
 
         #region MyRegion
-        public static string GetDirectoryName(string nad)
-        {
-            return Path.GetDirectoryName(nad);
-        }
+
 
         private static void MakeUncLongPath(ref string nad)
         {

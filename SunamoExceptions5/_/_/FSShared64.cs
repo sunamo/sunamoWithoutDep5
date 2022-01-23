@@ -1,0 +1,176 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
+namespace SunamoExceptions
+{
+    public partial class FS
+    {
+        #region For easy copy from FSShared.cs
+        private static void ThrowNotImplementedUwp()
+        {
+            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Not implemented in UWP");
+        }
+
+        /// <summary>
+        /// Cant return with end slash becuase is working also with files
+        /// </summary>
+        /// <param name="firstCharLower"></param>
+        /// <param name="s"></param>
+        private static string CombineWorker(bool firstCharLower, params string[] s)
+        {
+            s = CA.TrimStart(AllChars.bs, s).ToArray();
+            var result = Path.Combine(s);
+            if (firstCharLower)
+            {
+                result = FS.FirstCharLower(ref result);
+            }
+            else
+            {
+                result = FS.FirstCharUpper(ref result);
+            }
+            // Cant return with end slash becuase is working also with files
+            //FS.WithEndSlash(ref result);
+            return result;
+        }
+
+        public static string GetFileNameWithoutExtension(string s)
+        {
+            return GetFileNameWithoutExtension<string, string>(s, null);
+        }
+
+        /// <summary>
+        /// Pokud by byla cesta zakončená backslashem, vrátila by metoda FS.GetFileName prázdný řetězec. 
+        /// if have more extension, remove just one
+        /// </summary>
+        /// <param name="s"></param>
+        public static StorageFile GetFileNameWithoutExtension<StorageFolder, StorageFile>(StorageFile s, AbstractCatalogBase<StorageFolder, StorageFile> ac)
+        {
+            if (ac == null)
+            {
+                var ss = s.ToString();
+                var vr = Path.GetFileNameWithoutExtension(ss.TrimEnd(AllChars.bs));
+                var ext = Path.GetExtension(ss).TrimStart(AllChars.dot);
+
+                if (!SH.ContainsOnly(ext, RandomHelper.vsZnakyWithoutSpecial))
+                {
+                    if (ext != string.Empty)
+                    {
+                        return (dynamic)vr + AllStrings.dot + ext;
+                    }
+                }
+                return (dynamic)vr;
+            }
+            else
+            {
+                ThrowNotImplementedUwp();
+                return s;
+            }
+        }
+
+
+        public static string GetDirectoryName(string rp)
+        {
+            if (string.IsNullOrEmpty(rp))
+            {
+                ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "GetDirectoryName", "rp", rp);
+            }
+            if (!FS.IsWindowsPathFormat(rp))
+            {
+                ThrowExceptions.IsNotWindowsPathFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), "rp", rp);
+            }
+
+
+            rp = rp.TrimEnd(AllChars.bs);
+            int dex = rp.LastIndexOf(AllChars.bs);
+            if (dex != -1)
+            {
+                var result = rp.Substring(0, dex + 1);
+                FS.FirstCharLower(ref result);
+                return result;
+            }
+            return "";
+        }
+
+        /// <summary>
+        /// Use FirstCharLower instead
+        /// </summary>
+        /// <param name="result"></param>
+        private static string FirstCharUpper(ref string result)
+        {
+            if (IsWindowsPathFormat(result))
+            {
+                result = SH.FirstCharUpper(result);
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Cant return with end slash becuase is working also with files
+        /// Use this than FS.Combine which if argument starts with backslash ignore all arguments before this
+        /// </summary>
+        /// <param name="upFolderName"></param>
+        /// <param name="dirNameDecoded"></param>
+        public static string Combine(params string[] s)
+        {
+            return CombineWorker(true, s);
+        }
+
+        public static string WithEndSlash(ref string v)
+        {
+            if (v != string.Empty)
+            {
+                v = v.TrimEnd(AllChars.bs) + AllChars.bs;
+            }
+            FirstCharLower(ref v);
+            return v;
+        }
+
+        private static string FirstCharLower(ref string result)
+        {
+            if (IsWindowsPathFormat(result))
+            {
+                result = SH.FirstCharLower(result);
+            }
+            return result;
+        }
+
+        public static bool IsWindowsPathFormat(string argValue)
+        {
+            if (string.IsNullOrWhiteSpace(argValue))
+            {
+                return false;
+            }
+
+            bool badFormat = false;
+
+            if (argValue.Length < 3)
+            {
+                return badFormat;
+            }
+            if (!char.IsLetter(argValue[0]))
+            {
+                badFormat = true;
+            }
+
+
+
+            if (char.IsLetter(argValue[1]))
+            {
+                badFormat = true;
+            }
+
+            if (argValue.Length > 2)
+            {
+                if (argValue[1] != '\\' && argValue[2] != '\\')
+                {
+                    badFormat = true;
+                }
+            }
+
+            return !badFormat;
+        }
+        #endregion
+    }
+}

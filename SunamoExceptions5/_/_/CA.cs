@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 
 namespace SunamoExceptions { 
-    public class CA
+    public partial class CA
     {
         public static Type type = typeof(CA);
 

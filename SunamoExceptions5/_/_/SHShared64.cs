@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,17 +11,7 @@ namespace SunamoExceptions
 {
     public partial class SH
     {
-        #region For easy copy from SH.cs
-        public static string FirstLine(string item)
-        {
-            var lines = SH.GetLines(item);
-            if (lines.Count == 0)
-            {
-                return string.Empty;
-            }
-            return lines[0];
-        }
-
+        #region For easy copy from SHShared64.cs
         /// <summary>
         /// Start at 0
         /// </summary>
@@ -50,6 +41,46 @@ namespace SunamoExceptions
             }
 
             return t.Substring(0, dex);
+        }
+
+
+        public static string FirstLine(string item)
+        {
+            var lines = SH.GetLines(item);
+            if (lines.Count == 0)
+            {
+                return string.Empty;
+            }
+            return lines[0];
+        }
+
+        public static bool ContainsOnly(string floorS, List<char> numericChars)
+        {
+            if (floorS.Length == 0)
+            {
+                return false;
+            }
+
+            foreach (var item in floorS)
+            {
+                if (!numericChars.Contains(item))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        public static string FirstCharLower(string nazevPP)
+        {
+            if (nazevPP.Length < 2)
+            {
+                return nazevPP;
+            }
+
+            string sb = nazevPP.Substring(1);
+            return nazevPP[0].ToString().ToLower() + sb;
         }
         #endregion
     }
