@@ -13,6 +13,16 @@ namespace SunamoExceptions
             ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Not implemented in UWP");
         }
 
+        public static string AbsoluteFromCombinePath(string arg)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static object Combine(string upfolder, object p)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Cant return with end slash becuase is working also with files
         /// </summary>
@@ -39,6 +49,8 @@ namespace SunamoExceptions
         {
             return GetFileNameWithoutExtension<string, string>(s, null);
         }
+
+        
 
         /// <summary>
         /// Pokud by byla cesta zakončená backslashem, vrátila by metoda FS.GetFileName prázdný řetězec. 
@@ -69,6 +81,10 @@ namespace SunamoExceptions
             }
         }
 
+        public static string GetExtension(string path)
+        {
+            throw new NotImplementedException();
+        }
 
         public static string GetDirectoryName(string rp)
         {

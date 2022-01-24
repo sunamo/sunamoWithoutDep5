@@ -11,5 +11,6 @@ namespace SunamoExceptions
         public const string xlf = ".xlf";
         public static string jpg = ".jpg";
         public static string webp = ".webp";
+        public static string _7z = ".7z";
     }
 }

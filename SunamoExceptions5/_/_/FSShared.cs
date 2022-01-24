@@ -9,6 +9,11 @@ namespace SunamoExceptions
     public partial class FS
     {
         #region For easy shared from FSShared.cs
+        public static void DeleteFile(string item)
+        {
+            File.Delete(item);
+        }
+
         /// <summary>
         /// Vrátí cestu a název souboru bez ext a ext
         /// All returned is normal case

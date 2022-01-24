@@ -25,7 +25,28 @@ namespace SunamoExceptions
             }
             return vr;
         }
-        public static string WrapWithQm(string commitMessage)
+
+        /// <summary>
+        /// Format - use string.Format with error checking, as only one can be use wich { } [ ] chars in text
+        /// Format2 - use string.Format with error checking
+        /// Format3 - Replace {x} with my code. Can be used with wildcard
+        /// Format4 - use string.Format without error checking
+        /// 
+        /// Manually replace every {i} 
+        /// </summary>
+        /// <param name="template"></param>
+        /// <param name="args"></param>
+        public static string Format3(string template, params object[] args)
+        {
+            // this was original implementation but dont know why isnt used string.format
+            for (int i = 0; i < args.Length; i++)
+            {
+                template = SH.ReplaceAll2(template, args[i].ToString(), AllStrings.lcub + i + AllStrings.rcub);
+            }
+            return template;
+        }
+
+            public static string WrapWithQm(string commitMessage)
         {
             return SH.WrapWith(commitMessage, AllChars.qm);
         }
@@ -59,6 +80,11 @@ namespace SunamoExceptions
                 return name.Substring(0, name.Length - ext.Length);
             }
             return name;
+        }
+
+        public static string ReplaceOnce(string text, string xmlns, string empty)
+        {
+            throw new NotImplementedException();
         }
 
         public static string Trim(string s, string args)

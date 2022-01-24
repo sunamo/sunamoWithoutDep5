@@ -12,6 +12,17 @@ namespace SunamoExceptions
 
         #region For easy copy
 
+        /// <summary>
+        /// Stejná jako metoda ReplaceAll, ale bere si do A3 pouze jediný parametr, nikoliv jejich pole
+        /// </summary>
+        /// <param name="vstup"></param>
+        /// <param name="zaCo"></param>
+        /// <param name="co"></param>
+        public static string ReplaceAll2(string vstup, string zaCo, string co)
+        {
+            return vstup.Replace(co, zaCo);
+        }
+
         public static string GetTextBetweenTwoChars(string p, int begin, int end)
         {
             if (end > begin)
