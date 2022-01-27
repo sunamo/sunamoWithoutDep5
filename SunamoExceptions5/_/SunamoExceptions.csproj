@@ -11,7 +11,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sunamo.notmine\firenero.AsyncIO\firenero.AsyncIO.csproj" />
-    <ProjectReference Include="..\..\sunamo\duo\duo.csproj" />
   </ItemGroup>
   <!--<SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
