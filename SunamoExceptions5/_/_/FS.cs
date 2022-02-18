@@ -2,14 +2,25 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace SunamoExceptions
 {
     public partial class FS
     {
         private static Type type = typeof(FS);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static string NormalizeExtension2(string item)
+        {
+            return item.ToLower().TrimStart(AllChars.dot);
+        }
+        public static bool IsFileHasKnownExtension(string relativeTo)
+        {
+            var ext = FS.GetExtension(relativeTo);
+            ext = FS.NormalizeExtension2(ext);
+
+            return AllExtensionsHelperWithoutDot.allExtensionsWithoutDot.ContainsKey(ext);
+        }
 
         private static long ConvertToSmallerComputerUnitSize(long value, ComputerSizeUnits b, ComputerSizeUnits to)
         {

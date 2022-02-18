@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SunamoExceptions
 {
@@ -23,6 +21,11 @@ namespace SunamoExceptions
                 }
             }
             return false;
+        }
+
+        public static void CallingSyncMethodInAsyncApp()
+        {
+            Custom("Calling sync method in async app");
         }
         #endregion
     }

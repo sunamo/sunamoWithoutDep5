@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace SunamoExceptions
 {
     public partial class FS
     {
+        public static string GetExtension(string path)
+        {
+            return Path.GetExtension(path);
+        }
+
         #region For easy copy from FSShared.cs
         private static void ThrowNotImplementedUwp()
         {
@@ -50,7 +53,7 @@ namespace SunamoExceptions
             return GetFileNameWithoutExtension<string, string>(s, null);
         }
 
-        
+
 
         /// <summary>
         /// Pokud by byla cesta zakončená backslashem, vrátila by metoda FS.GetFileName prázdný řetězec. 
@@ -81,10 +84,7 @@ namespace SunamoExceptions
             }
         }
 
-        public static string GetExtension(string path)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public static string GetDirectoryName(string rp)
         {

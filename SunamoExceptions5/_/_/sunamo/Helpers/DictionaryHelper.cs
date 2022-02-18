@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace Xlf
+namespace SunamoExceptions
 {
     public class DictionaryHelper
     {
@@ -61,6 +57,18 @@ namespace Xlf
         }
 
         #endregion
+
+        public static void AddOrPlus<T>(Dictionary<T, long> sl, T key, long p)
+        {
+            if (sl.ContainsKey(key))
+            {
+                sl[key] += p;
+            }
+            else
+            {
+                sl.Add(key, p);
+            }
+        }
 
         #region For easy copy from DictionaryHelperShared.cs to SunamoExceptions
         /// <summary>
