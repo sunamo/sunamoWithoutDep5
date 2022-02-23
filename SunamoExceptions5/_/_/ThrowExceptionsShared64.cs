@@ -50,6 +50,22 @@ namespace SunamoExceptions
             }
         }
 
+        public static void ThrowIsNotNullEx(Func<string, Exception, string, string> f, Exception ex, string message)
+        {
+            t = Exc.GetStackTrace2(true);
+
+            var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), ex, message);
+            ThrowIsNotNull(t.Item3, exc);
+        }
+
+         public static void ThrowIsNotNullEx(Func<string, Exception, string> f, Exception ex)
+        {
+            t = Exc.GetStackTrace2(true);
+
+            var exc = f(FullNameOfExecutedCode(t.Item1, t.Item2), ex);
+            ThrowIsNotNull(t.Item3, exc);
+        }
+
         public static void ThrowIsNotNullEx(Func<string, object, string> f, object o)
         {
             t = Exc.GetStackTrace2(true);

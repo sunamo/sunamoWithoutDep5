@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SunamoException;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -80,9 +81,75 @@ namespace SunamoExceptions
             return before + message + AllStrings.space + Exceptions.TextOfExceptions(ex);
         }
 
+        public static string Ftp(string before,Exception ex, string message)
+        {
+            return before + message + AllStrings.space + Exceptions.TextOfExceptions(ex);
+        }
 
+        public static string IO(string before,string message)
+        {
+            return before + message;
+        }
 
+        public static string InvalidOperation(string before,string message)
+        {
+            return before + message;
+        }
 
+        public static string ArgumentOutOfRange(string before,string message)
+        {
+            return before + message;
+        }
+
+        public static string Format(string before,string message)
+        {
+            return before + message;
+        }
+
+        public static string FtpSecurityNotAvailable(string before,string message)
+        {
+            return before + message;
+        }
+
+        public static string FtpCommand(string before,object s)
+        {
+            return before + DumpAsString(s);
+        }
+
+        public static string FtpAuthentication(string before,object s)
+        {
+            return before + DumpAsString(s);
+        }
+
+        public static string DumpAsString(object s)
+        {
+            return RH.DumpAsString(string.Empty, s);
+        }
+
+        public static string InvalidCast(string before,string message)
+        {
+            return before + message;
+        }
+
+        public static string ObjectDisposed(string before,string message)
+        {
+            return before + message;
+        }
+        
+        public static string Timeout(string before,string message)
+        {
+            return before + message;
+        }
+
+        public static string FtpMissingSocket(string before, Exception ex)
+        {
+            return before + Exceptions.TextOfExceptions(ex);
+        }
+
+        public static string UriFormat(string before, string ex)
+        {
+            return before +ex;
+        }
         #endregion
     }
 }

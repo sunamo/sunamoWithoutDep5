@@ -152,7 +152,7 @@ namespace SunamoExceptions {
         }
         #endregion
 
-        #region For easy copy from CAShared64.cs
+        #region For easy copy from CA.cs
         public static List<string> RemoveStringsEmpty2(List<string> mySites)
         {
             for (int i = mySites.Count - 1; i >= 0; i--)

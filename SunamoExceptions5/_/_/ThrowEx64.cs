@@ -9,7 +9,7 @@ namespace SunamoExceptions
         #region For easy copy from ThrowEx64.cs
         public static void NotImplementedCase(object niCase)
         {
-            ThrowIsNotNull(Exceptions.NotImplementedCase,niCase);
+            ThrowIsNotNull(Exceptions.NotImplementedCase, niCase);
         }
 
         private static void ThrowIsNotNull(Func<string, object, string> f, object o)
@@ -17,11 +17,16 @@ namespace SunamoExceptions
             ThrowExceptions.ThrowIsNotNullEx(f, o);
         }
 
+        private static void ThrowIsNotNull(Func<string, Exception, string> f, Exception o)
+        {
+            ThrowExceptions.ThrowIsNotNullEx(f, o);
+        }
+
         public static Tuple<string, string, string> t = null;
 
-        public static void Custom(string v)
+        public static void Custom(string v, string v2 = Consts.se)
         {
-            ThrowIsNotNull(Exceptions.Custom, v);
+            ThrowIsNotNull(Exceptions.Custom, SH.Join(CA.ToList<string>(v, v2), Consts.se));
         }
 
         private static void ThrowIsNotNull(Func<string, string> f)

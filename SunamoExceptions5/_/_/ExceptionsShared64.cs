@@ -17,6 +17,11 @@ namespace SunamoExceptions
         /// <param name="alsoInner"></param>
         public static string TextOfExceptions(Exception ex, bool alsoInner = true)
         {
+            if (ex == null)
+            {
+                return Consts.se;
+            }
+
             StringBuilder sb = new StringBuilder();
             sb.Append(Consts.Exception);
             sb.AppendLine(ex.Message);

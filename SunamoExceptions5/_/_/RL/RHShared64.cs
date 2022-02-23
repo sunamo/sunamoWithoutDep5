@@ -39,7 +39,30 @@ namespace SunamoException
             var withType = fieldInfos.Where(fi => fi.IsLiteral && !fi.IsInitOnly).ToList();
             return withType;
         }
+
+       
         #endregion
         #endregion
+
+         internal static string DumpAsString(string empty, object output)
+        {
+            string objectAsXmlString;
+
+         System.Xml.Serialization.XmlSerializer xs = new System.Xml.Serialization.XmlSerializer(output.GetType());
+         using (System.IO.StringWriter sw = new System.IO.StringWriter())
+         {
+            try
+            {
+               xs.Serialize(sw, output);
+               objectAsXmlString = sw.ToString();
+            }
+            catch (Exception ex)
+            {
+               objectAsXmlString = ex.ToString();
+            }
+         }
+
+         return objectAsXmlString;
+        }
     }
 }
