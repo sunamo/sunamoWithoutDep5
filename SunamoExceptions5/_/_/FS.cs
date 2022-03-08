@@ -19,6 +19,8 @@ namespace SunamoExceptions
             var ext = FS.GetExtension(relativeTo);
             ext = FS.NormalizeExtension2(ext);
 
+            
+            
             return AllExtensionsHelperWithoutDot.allExtensionsWithoutDot.ContainsKey(ext);
         }
 
