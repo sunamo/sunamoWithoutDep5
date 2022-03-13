@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-public class CsConsts
+namespace SunamoExceptions
 {
-    #region For easy copy
-    public const string atSystemDot = "at System.";
-    #endregion
+    public class CsConsts
+    {
+        #region For easy copy
+
+        public const string atSystemDot = "at System.";
+
+        #endregion
+    }
 }
