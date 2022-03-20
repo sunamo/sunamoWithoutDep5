@@ -29,15 +29,15 @@ namespace SunamoExceptions
         /// <summary>
         /// Cant return with end slash becuase is working also with files
         /// </summary>
-        /// <param name="firstCharLower"></param>
+        /// <param name="FirstCharUpper"></param>
         /// <param name="s"></param>
-        private static string CombineWorker(bool firstCharLower, params string[] s)
+        private static string CombineWorker(bool FirstCharUpper, params string[] s)
         {
             s = CA.TrimStart(AllChars.bs, s).ToArray();
             var result = Path.Combine(s);
-            if (firstCharLower)
+            if (FirstCharUpper)
             {
-                result = FS.FirstCharLower(ref result);
+                result = FS.FirstCharUpper(ref result);
             }
             else
             {
@@ -103,14 +103,14 @@ namespace SunamoExceptions
             if (dex != -1)
             {
                 var result = rp.Substring(0, dex + 1);
-                FS.FirstCharLower(ref result);
+                FS.FirstCharUpper(ref result);
                 return result;
             }
             return "";
         }
 
         /// <summary>
-        /// Use FirstCharLower instead
+        /// Use FirstCharUpper instead
         /// </summary>
         /// <param name="result"></param>
         private static string FirstCharUpper(ref string result)
@@ -139,17 +139,8 @@ namespace SunamoExceptions
             {
                 v = v.TrimEnd(AllChars.bs) + AllChars.bs;
             }
-            FirstCharLower(ref v);
+            FirstCharUpper(ref v);
             return v;
-        }
-
-        private static string FirstCharLower(ref string result)
-        {
-            if (IsWindowsPathFormat(result))
-            {
-                result = SH.FirstCharLower(result);
-            }
-            return result;
         }
 
         public static bool IsWindowsPathFormat(string argValue)
