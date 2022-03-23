@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace sunamo.Data
+namespace SunamoExceptions
 {
     public class ResultWithException<T>
     {
