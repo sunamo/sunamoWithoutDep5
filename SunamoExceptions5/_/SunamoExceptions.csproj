@@ -13,6 +13,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\sunamo.notmine\firenero.AsyncIO\firenero.AsyncIO.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_\Data\" />
+  </ItemGroup>
   <!--<SignAssembly>false</SignAssembly>
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>sunamo.snk</AssemblyOriginatorKeyFile>
