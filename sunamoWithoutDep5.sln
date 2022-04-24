@@ -1,9 +1,14 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31313.79
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunamoExceptions5", "SunamoExceptions5\SunamoExceptions5.csproj", "{6C942237-E079-4C3F-A606-DF5C389970C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunamoExceptions5", "SunamoExceptions5\SunamoExceptions5.csproj", "{6C942237-E079-4C3F-A606-DF5C389970C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SunamoJson5", "SunamoJson5\SunamoJson5.csproj", "{E2DBE6DF-8933-4E63-A809-0F45DABBFA1B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "firenero.AsyncIO5", "..\sunamo.notmine5\firenero.AsyncIO5\firenero.AsyncIO5.csproj", "{AC7DE7FD-B255-47AE-AB23-3FF6E27800A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cl", "cl\cl.csproj", "{C011F8F9-1DE9-400A-8C73-8D0587A12D1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +20,18 @@ Global
 		{6C942237-E079-4C3F-A606-DF5C389970C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C942237-E079-4C3F-A606-DF5C389970C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C942237-E079-4C3F-A606-DF5C389970C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2DBE6DF-8933-4E63-A809-0F45DABBFA1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2DBE6DF-8933-4E63-A809-0F45DABBFA1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2DBE6DF-8933-4E63-A809-0F45DABBFA1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2DBE6DF-8933-4E63-A809-0F45DABBFA1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC7DE7FD-B255-47AE-AB23-3FF6E27800A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC7DE7FD-B255-47AE-AB23-3FF6E27800A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC7DE7FD-B255-47AE-AB23-3FF6E27800A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC7DE7FD-B255-47AE-AB23-3FF6E27800A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C011F8F9-1DE9-400A-8C73-8D0587A12D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C011F8F9-1DE9-400A-8C73-8D0587A12D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C011F8F9-1DE9-400A-8C73-8D0587A12D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C011F8F9-1DE9-400A-8C73-8D0587A12D1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

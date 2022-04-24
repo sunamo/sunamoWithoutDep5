@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    
+    
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\sunamoWithoutDep\cl\CLConsole.cs" Link="CLConsole.cs" />
+    <Compile Include="..\..\sunamoWithoutDep\cl\ClSources.cs" Link="ClSources.cs" />
+  </ItemGroup>
+
+</Project>

@@ -1,5 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="_\obj\**" />
+    <EmbeddedResource Remove="_\obj\**" />
+    <None Remove="_\obj\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\sunamo.notmine5\firenero.AsyncIO5\firenero.AsyncIO5.csproj" />
+  </ItemGroup>
 </Project>
