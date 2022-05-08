@@ -51,7 +51,7 @@ namespace SunamoExceptions
         {
             if (exception != null)
             {
-                ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), exception);
+                ThrowExceptions.Custom(exception);
                 return false;
             }
             return true;

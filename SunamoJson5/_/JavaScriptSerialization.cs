@@ -53,7 +53,7 @@ public class JavascriptSerialization : IJsSerializer
                 utf8json = JsonUtf8Json.instance;
                 break;
             default:
-                ThrowExceptions.NotImplementedCase(Exc.GetStackTrace(), type, Exc.CallingMethod(), sl);
+                ThrowExceptions.NotImplementedCase(sl);
                 break;
         }
     }
@@ -137,13 +137,13 @@ public class JavascriptSerialization : IJsSerializer
 
     private T ThrowExceptionsMicrosoftSerializerNotSupported<T>()
     {
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "System.Web.Scripting.Serialization.JavaScriptSerializer is not supported in Windows Store Apps.");
+        ThrowExceptions.Custom("System.Web.Scripting.Serialization.JavaScriptSerializer is not supported in Windows Store Apps.");
         return default(T);
     }
 
     private T NotSupportedElseIfClasule<T>(string v)
     {
-        ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Else if with enum value " + sl + " in JavascriptSerialization." + v);
+        ThrowExceptions.Custom("Else if with enum value " + sl + " in JavascriptSerialization." + v);
         return default(T);
     }
 
@@ -151,7 +151,7 @@ public class JavascriptSerialization : IJsSerializer
     {
         if (string.IsNullOrEmpty(o))
         {
-            ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, Exc.CallingMethod(), "o", o);
+            ThrowExceptions.IsNullOrEmpty("o", o);
         }
 
         if (sl == SerializationLibrary.Utf8Json)

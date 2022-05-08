@@ -134,7 +134,7 @@ namespace SunamoExceptions
         public static void CreateFoldersPsysicallyUnlessThere(string nad)
         {
             ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "CreateFoldersPsysicallyUnlessThere", "nad", nad);
-            ThrowExceptions.IsNotWindowsPathFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), "nad", nad);
+            ThrowExceptions.IsNotWindowsPathFormat("nad", nad);
 
             FS.MakeUncLongPath(ref nad);
             if (FS.ExistsDirectory(nad))

@@ -13,7 +13,7 @@ namespace SunamoExceptions
         #region For easy copy from FSShared.cs
         private static void ThrowNotImplementedUwp()
         {
-            ThrowExceptions.Custom(Exc.GetStackTrace(), type, Exc.CallingMethod(), "Not implemented in UWP");
+            ThrowExceptions.Custom("Not implemented in UWP");
         }
 
         public static string AbsoluteFromCombinePath(string arg)
@@ -94,7 +94,7 @@ namespace SunamoExceptions
             }
             if (!FS.IsWindowsPathFormat(rp))
             {
-                ThrowExceptions.IsNotWindowsPathFormat(Exc.GetStackTrace(), type, Exc.CallingMethod(), "rp", rp);
+                ThrowExceptions.IsNotWindowsPathFormat("rp", rp);
             }
 
 
