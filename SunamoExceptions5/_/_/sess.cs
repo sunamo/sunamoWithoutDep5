@@ -19,7 +19,7 @@ namespace SunamoExceptions
                 case XlfKeys.DifferentCountElementsInCollection:
                     return "Different count elements in collection";
                 default:
-                    ThrowExceptions.NotImplementedCase(k);
+                    ThrowEx.NotImplementedCase(k);
                     break;
             }
 

@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Text;
 namespace SunamoExceptions
 {
-    public partial class ThrowExceptions
+    public partial class ThrowEx
     {
-static Type type = typeof(ThrowExceptions);
+static Type type = typeof(ThrowEx);
 
         
 
@@ -21,25 +21,25 @@ static Type type = typeof(ThrowExceptions);
         /// In console app is needed put in into try-catch error due to there is no globally handler of errors
         /// </summary>
         /// <param name="v"></param>
-        private static bool ThrowIsNotNull(string stacktrace, object v)
+        private static bool ThrowIsNotNull( object v)
         {
             if (v != null)
             {
-                ThrowIsNotNull(stacktrace, v.ToString());
+                ThrowIsNotNull(v.ToString());
                 return false;
             }
             return true;
         }
 
         static string dot = ".";
-        public static void NotFoundTranslationKeyWithCustomError(string stacktrace, object type, string methodName, string message)
+        public static void NotFoundTranslationKeyWithCustomError( string message)
         {
-            Custom(stacktrace, type, methodName, message);
+            Custom(ThrowIsNotNull( message);
         }
 
-        public static void NotFoundTranslationKeyWithoutCustomError(string stacktrace, object type, string methodName, string message)
+        public static void NotFoundTranslationKeyWithoutCustomError( string message)
         {
-            Custom(stacktrace, type, methodName, message);
+            Custom(ThrowIsNotNull( message);
         }
         #endregion
     }

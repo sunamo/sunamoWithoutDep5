@@ -50,7 +50,7 @@ namespace SunamoExceptions
             {
                 if (throwExceptionIfNotContains)
                 {
-                    ThrowExceptions.NotContains(null, type, "GetTextBetween", p, beginS.ToString(), endS.ToString());
+                    ThrowEx.NotContains(null, type, "GetTextBetween", p, beginS.ToString(), endS.ToString());
                 }
             }
             else

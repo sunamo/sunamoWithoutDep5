@@ -14,12 +14,12 @@ namespace SunamoExceptions
 
         private static void ThrowIsNotNull(Func<string, object, string> f, object o)
         {
-            ThrowExceptions.ThrowIsNotNullEx(f, o);
+            ThrowEx.ThrowIsNotNullEx(f, o);
         }
 
         private static void ThrowIsNotNull(Func<string, Exception, string> f, Exception o)
         {
-            ThrowExceptions.ThrowIsNotNullEx(f, o);
+            ThrowEx.ThrowIsNotNullEx(f, o);
         }
 
         public static Tuple<string, string, string> t = null;
@@ -31,17 +31,17 @@ namespace SunamoExceptions
 
         private static void ThrowIsNotNull(Func<string, string> f)
         {
-            ThrowExceptions.ThrowIsNotNullEx(f);
+            ThrowEx.ThrowIsNotNullEx(f);
         }
 
         private static void ThrowIsNotNull(Func<string, string, string> f, string a1)
         {
-            ThrowExceptions.ThrowIsNotNullEx(f, a1);
+            ThrowEx.ThrowIsNotNullEx(f, a1);
         }
 
         private static string FullNameOfExecutedCode()
         {
-            return ThrowExceptions.FullNameOfExecutedCode(t.Item1, t.Item2, true);
+            return ThrowEx.FullNameOfExecutedCode(t.Item1, t.Item2, true);
         }
 
         public static void NotImplementedMethod()

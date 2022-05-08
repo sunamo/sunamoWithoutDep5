@@ -41,12 +41,12 @@ namespace SunamoExceptions
 
         public static void ExcAsArg(Exception ex, string message = Consts.se)
         {
-            ThrowExceptions.ThrowIsNotNullEx(Exceptions.ExcAsArg, ex, message);
+            ThrowEx.ThrowIsNotNullEx(Exceptions.ExcAsArg, ex, message);
         }
 
         public static void Ftp(string message, Exception ex = null)
         {
-            ThrowExceptions.ThrowIsNotNullEx(Exceptions.Ftp, ex, message);
+            ThrowEx.ThrowIsNotNullEx(Exceptions.Ftp, ex, message);
         }
 
         public static void IO(string v)

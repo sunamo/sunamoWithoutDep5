@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SunamoExceptions
 {
-    public partial class ThrowExceptions
+    public partial class ThrowEx
     {
 
         
 
-        #region For easy copy from ThrowExceptionsShared.cs - all ok 17-10-21
+        #region For easy copy from ThrowExShared.cs - all ok 17-10-21
 
 
         public static void DummyNotThrow(Exception ex)
@@ -20,9 +20,9 @@ namespace SunamoExceptions
 
         }
 
-        public static void NotImplementedMethod(string stacktrace, object type, string methodName)
+        public static void NotImplementedMethod()
         {
-            ThrowIsNotNull(stacktrace, Exceptions.NotImplementedMethod(FullNameOfExecutedCode(type, methodName)));
+            ThrowIsNotNull(Exceptions.NotImplementedMethod(FullNameOfExecutedCode(t.Item1, t.Item2)));
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace SunamoExceptions
         /// <param name="after"></param>
         public static bool NotContains(string stacktrace, object type, string v, string p, params string[] after)
         {
-            return ThrowIsNotNull(stacktrace, Exceptions.NotContains(FullNameOfExecutedCode(type, v, true), p, after));
+            return ThrowIsNotNull(Exceptions.NotContains(FullNameOfExecutedCode(type, v, true), p, after));
         }
 
         /// <summary>
@@ -47,11 +47,11 @@ namespace SunamoExceptions
         /// <param name="type"></param>
         /// <param name="methodName"></param>
         /// <param name="exception"></param>
-        public static bool ThrowIsNotNull(string stacktrace, object type, string methodName, string exception)
+        public static bool ThrowIsNotNull( string exception)
         {
             if (exception != null)
             {
-                ThrowExceptions.Custom(exception);
+                ThrowEx.Custom(exception);
                 return false;
             }
             return true;

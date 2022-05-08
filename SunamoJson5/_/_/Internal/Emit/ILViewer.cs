@@ -180,7 +180,7 @@ namespace Utf8Json.Internal
                             }
                             break;
                         default:
-                            ThrowExceptions.NotImplementedCase(opCode.OperandType);
+                            ThrowEx.NotImplementedCase(opCode.OperandType);
                             break;
                     }
 

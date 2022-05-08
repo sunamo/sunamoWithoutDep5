@@ -38,7 +38,7 @@ public class JavascriptSerialization : IJsSerializer
         {
             case SerializationLibrary.Microsoft:
                 utf8json = JsonUtf8Json.instance;
-                //ThrowExceptionsMicrosoftSerializerNotSupported<object>();
+                //ThrowExMicrosoftSerializerNotSupported<object>();
                 break;
             case SerializationLibrary.Newtonsoft:
                 utf8json = JsonUtf8Json.instance;
@@ -53,7 +53,7 @@ public class JavascriptSerialization : IJsSerializer
                 utf8json = JsonUtf8Json.instance;
                 break;
             default:
-                ThrowExceptions.NotImplementedCase(sl);
+                ThrowEx.NotImplementedCase(sl);
                 break;
         }
     }
@@ -91,7 +91,7 @@ public class JavascriptSerialization : IJsSerializer
         //else if (sl == SerializationLibrary.Microsoft)
         //{
         //    return systemTextJson.Serialize(o);
-        //    return ThrowExceptionsMicrosoftSerializerNotSupported<string>();
+        //    return ThrowExMicrosoftSerializerNotSupported<string>();
         //    //return js.Serialize(o);
         //}
         //else if (sl == SerializationLibrary.Newtonsoft)
@@ -118,7 +118,7 @@ public class JavascriptSerialization : IJsSerializer
     //    else if (sl == SerializationLibrary.Microsoft)
     //    {
     //        return systemTextJson.Serialize(o);
-    //        return ThrowExceptionsMicrosoftSerializerNotSupported<string>();
+    //        return ThrowExMicrosoftSerializerNotSupported<string>();
     //        //return js.Serialize(o);
     //    }
     //    else if (sl == SerializationLibrary.Newtonsoft)
@@ -135,15 +135,15 @@ public class JavascriptSerialization : IJsSerializer
     //    }
     //}
 
-    private T ThrowExceptionsMicrosoftSerializerNotSupported<T>()
+    private T ThrowExMicrosoftSerializerNotSupported<T>()
     {
-        ThrowExceptions.Custom("System.Web.Scripting.Serialization.JavaScriptSerializer is not supported in Windows Store Apps.");
+        ThrowEx.Custom("System.Web.Scripting.Serialization.JavaScriptSerializer is not supported in Windows Store Apps.");
         return default(T);
     }
 
     private T NotSupportedElseIfClasule<T>(string v)
     {
-        ThrowExceptions.Custom("Else if with enum value " + sl + " in JavascriptSerialization." + v);
+        ThrowEx.Custom("Else if with enum value " + sl + " in JavascriptSerialization." + v);
         return default(T);
     }
 
@@ -151,7 +151,7 @@ public class JavascriptSerialization : IJsSerializer
     {
         if (string.IsNullOrEmpty(o))
         {
-            ThrowExceptions.IsNullOrEmpty("o", o);
+            ThrowEx.IsNullOrEmpty("o", o);
         }
 
         if (sl == SerializationLibrary.Utf8Json)

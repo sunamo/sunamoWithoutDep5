@@ -133,8 +133,8 @@ namespace SunamoExceptions
         /// <param name="nad"></param>
         public static void CreateFoldersPsysicallyUnlessThere(string nad)
         {
-            ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "CreateFoldersPsysicallyUnlessThere", "nad", nad);
-            ThrowExceptions.IsNotWindowsPathFormat("nad", nad);
+            ThrowEx.IsNullOrEmpty(Exc.GetStackTrace(), type, "CreateFoldersPsysicallyUnlessThere", "nad", nad);
+            ThrowEx.IsNotWindowsPathFormat("nad", nad);
 
             FS.MakeUncLongPath(ref nad);
             if (FS.ExistsDirectory(nad))

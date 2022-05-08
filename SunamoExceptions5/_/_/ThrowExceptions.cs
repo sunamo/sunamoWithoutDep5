@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace SunamoExceptions
 {
-    public partial class ThrowExceptions
+    public partial class ThrowEx
     {
-        #region For easy copy from ThrowExceptions.cs
+        #region For easy copy from ThrowEx.cs
         #region DifferentCountInLists
 
         public static void ExcAsArg(Exception ex, string p = Consts.se)

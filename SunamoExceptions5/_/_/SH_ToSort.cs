@@ -210,7 +210,7 @@ namespace SunamoExceptions
                 }
                 catch (Exception ex)
                 {
-                    ThrowExceptions.ExcAsArg(ex);
+                    ThrowEx.ExcAsArg(ex);
                     return status;
                 }
             }

@@ -13,7 +13,7 @@ namespace SunamoExceptions
         #region For easy copy from FSShared.cs
         private static void ThrowNotImplementedUwp()
         {
-            ThrowExceptions.Custom("Not implemented in UWP");
+            ThrowEx.Custom("Not implemented in UWP");
         }
 
         public static string AbsoluteFromCombinePath(string arg)
@@ -90,11 +90,11 @@ namespace SunamoExceptions
         {
             if (string.IsNullOrEmpty(rp))
             {
-                ThrowExceptions.IsNullOrEmpty(Exc.GetStackTrace(), type, "GetDirectoryName", "rp", rp);
+                ThrowEx.IsNullOrEmpty(Exc.GetStackTrace(), type, "GetDirectoryName", "rp", rp);
             }
             if (!FS.IsWindowsPathFormat(rp))
             {
-                ThrowExceptions.IsNotWindowsPathFormat("rp", rp);
+                ThrowEx.IsNotWindowsPathFormat("rp", rp);
             }
 
 
