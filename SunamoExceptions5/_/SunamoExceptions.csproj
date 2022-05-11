@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <!--<PropertyGroup>
     <ProjectTypeGuids>fae04ec0-301f-11d3-bf4b-00c04f79efbc</ProjectTypeGuids>
     <ProjectGuid>F3F6F3CA-A5F5-4994-9666-3FED63614B8F</ProjectGuid>
   </PropertyGroup>-->
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net48</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />

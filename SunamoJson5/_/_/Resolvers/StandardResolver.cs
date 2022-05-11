@@ -42,7 +42,7 @@ namespace Utf8Json.Resolvers.Internal
         {
             BuiltinResolver.Instance, // Builtin
 #if !NETSTANDARD
-            Utf8Json.Unity.UnityResolver.Instance,
+            //Utf8Json.Unity.UnityResolver.Instance,
 #endif
             EnumResolver.Default,     // Enum(default => string)
             DynamicGenericResolver.Instance, // T[], List<T>, etc...
