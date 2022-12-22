@@ -1,4 +1,4 @@
-﻿using AsyncIO.FileSystem;
+using AsyncIO.FileSystem;
 using System;
 using System.Threading.Tasks;
 

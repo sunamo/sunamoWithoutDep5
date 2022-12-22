@@ -1,4 +1,4 @@
-﻿using SunamoException;
+using SunamoException;
 using System;
 
 namespace SunamoExceptions

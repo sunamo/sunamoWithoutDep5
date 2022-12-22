@@ -1,4 +1,4 @@
-﻿using SunamoException;
+using SunamoException;
 using SunamoExceptions;
 using System.Collections.Generic;
 using System.Linq;

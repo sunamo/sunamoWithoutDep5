@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 #region For easy copy
 public partial class PathInternal

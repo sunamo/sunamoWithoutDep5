@@ -1,4 +1,4 @@
-﻿
+
     public interface IMyStations
     {
         //void ApplyDefault();
